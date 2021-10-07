@@ -9,44 +9,46 @@
   </head>
   <body>
     <div class="modal__window__wrapper">
-      <div class="modal__form__wrapper reset__psw">
-        <img src="./imgs/fydmebeta.svg" alt="" class="form__logo" />
-        <h3 class="form__title">Reset your password</h3>
-        <form action="" class="modal__form">
-          <div class="input__block email__sign__up">
-            <img src="imgs/lock.svg" class="pas__ic" alt="" />
-            <input type="text" placeholder="Password" />
-          </div>
-          <div class="input__block email__sign__up">
-            <img src="imgs/lock.svg" class="pas__ic" alt="" />
-            <input type="text" placeholder="Repeat Password" />
-          </div>
-        </form>
-        <button class="main__btn" disabled="true">Reset password</button>
-      </div>
-      <div class="modal__form__wrapper forgot__psw active">
-        <img src="./imgs/fydmebeta.svg" alt="" class="form__logo" />
-        <h3 class="form__title">Forgot your password?</h3>
-        <p class="modal__subtext">
-          Enter the email address you used when you joined and we’ll send you instructions to reset
-          your password.
-        </p>
-        <form action="" class="modal__form">
-          <div class="input__block email__sign__up first">
-            <span>@</span>
-            <input type="text" placeholder="mail@mail.com" />
-          </div>
-        </form>
-        <button class="main__btn" disabled="true">Send Reset Instructions</button>
-      </div>
-      <div class="modal__form__wrapper scc">
-        <img src="./imgs/fydmebeta.svg" alt="" class="form__logo" />
-        <div class="success__wrapper">
-          <img src="./imgs/scc.png" alt="" />
-          <h3 class="form__title">Success!</h3>
+      <div class="modal__form__wrap">
+        <div class="modal__form__wrapper reset__psw active">
+          <img src="./imgs/fydmebeta.svg" alt="" class="form__logo" />
+          <h3 class="form__title">Reset your password</h3>
+          <form action="" class="modal__form">
+            <div class="input__block email__sign__up">
+              <img src="imgs/lock.svg" class="pas__ic" alt="" />
+              <input type="text" placeholder="Password" />
+            </div>
+            <div class="input__block email__sign__up">
+              <img src="imgs/lock.svg" class="pas__ic" alt="" />
+              <input type="text" placeholder="Repeat Password" />
+            </div>
+          </form>
+          <button class="main__btn" disabled="true">Reset password</button>
+        </div>
+        <div class="modal__form__wrapper forgot__psw">
+          <img src="./imgs/fydmebeta.svg" alt="" class="form__logo" />
+          <h3 class="form__title">Forgot your password?</h3>
           <p class="modal__subtext">
-            Your password has been reset, you can log in with your new password now
+            Enter the email address you used when you joined and we’ll send you instructions to
+            reset your password.
           </p>
+          <form action="" class="modal__form">
+            <div class="input__block email__sign__up first">
+              <span>@</span>
+              <input type="text" placeholder="mail@mail.com" />
+            </div>
+          </form>
+          <button class="main__btn" disabled="true">Send Reset Instructions</button>
+        </div>
+        <div class="modal__form__wrapper scc">
+          <img src="./imgs/fydmebeta.svg" alt="" class="form__logo" />
+          <div class="success__wrapper">
+            <img src="./imgs/scc.png" alt="" />
+            <h3 class="form__title">Success!</h3>
+            <p class="modal__subtext">
+              Your password has been reset, you can log in with your new password now
+            </p>
+          </div>
         </div>
       </div>
     </div>
