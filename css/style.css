@@ -642,16 +642,23 @@ main {
 }
 
 .form__container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   width: 100%;
   height: 100%;
   max-width: 31rem;
   padding: 7.4rem 1rem 0;
   margin: 0 auto;
-  display: none;
+  opacity: 0;
 }
 
 .form__container.active {
-  display: block;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
 }
 
 .form__container.sign__in {
@@ -668,80 +675,6 @@ main {
   margin-bottom: 2.5rem;
 }
 
-.form__container.sign__in .sign__in.main__btn {
-  max-width: 24rem;
-  height: 4.2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 0.2rem 0 1.6rem;
-  margin: 0 auto 0;
-}
-
-.form__container.sign__in .sign__in.main__btn .btn__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.form__container.sign__in .sign__in.main__btn .logo__sp {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.5rem;
-  border-radius: 50%;
-  background-color: #0888ff;
-}
-
-.form__container.sign__in .sign__in.main__btn .logo__sp,
-.form__container.sign__in .sign__in.main__btn .btn__icon {
-  background-image: url("../imgs/Logo_FYD.png");
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.form__container.sign__in .sign__in.main__btn .sign__in__btn__block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: left;
-  font-size: 1.1rem;
-}
-
-.form__container.sign__in .sign__in.main__btn .sign__in__btn__block span {
-  line-height: 1.35;
-}
-
-.form__container.sign__in .sign__in.main__btn .sign__in__btn__block span:first-child {
-  font-weight: 700;
-}
-
-.form__container.sign__in .sign__in.main__btn .btn__icon {
-  width: 3.8rem;
-  height: 3.8rem;
-  background-color: #fff;
-  background-image: url("../imgs/search.svg");
-  background-size: 50%;
-  border-top-right-radius: 0.4rem;
-  border-bottom-right-radius: 0.5rem;
-}
-
 .form__container.sign__in .border__block {
   margin: 4rem auto;
 }
@@ -755,6 +688,13 @@ main {
   color: #909092;
   background-color: #fff;
   border: 0.2rem solid #e6e9f3;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.form__container.sign__in .main__btn.fp:hover {
+  color: #397ef7;
+  border: 0.2rem solid #397ef7;
 }
 
 .form__title {
@@ -970,18 +910,12 @@ main {
 
 /* modal window styles */
 .modal__window__wrapper {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background-color: rgba(0, 0, 0, 0.49);
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
@@ -989,22 +923,29 @@ main {
 }
 
 .modal__window__wrapper.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
 }
 
 .modal__form__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 36.6rem;
   height: 36rem;
   padding: 3.5rem 3.5rem 3rem 3.5rem;
   border-radius: 1rem;
   background-color: #fdfdff;
-  display: none;
+  opacity: 0;
+  z-index: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .modal__form__wrapper.active {
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .modal__form__wrapper .form__logo {
@@ -1020,13 +961,14 @@ main {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  color: #282839;
+  color: #5f5f69;
 }
 
 .modal__form__wrapper .modal__subtext {
   font-size: 1.2rem;
   line-height: 1.75;
   margin-bottom: 2.5rem;
+  color: #605e69;
 }
 
 .modal__form__wrapper .input__block.email__sign__up {
@@ -1040,6 +982,23 @@ main {
 
 .modal__form__wrapper .input__block.email__sign__up input {
   padding-left: 8.5%;
+  border: 0.1rem solid #e6e9f3;
+}
+
+.modal__form__wrapper .input__block.email__sign__up input::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.modal__form__wrapper .input__block.email__sign__up input:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.modal__form__wrapper .input__block.email__sign__up input::-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.modal__form__wrapper .input__block.email__sign__up input::placeholder {
+  font-weight: 300;
 }
 
 .modal__form__wrapper .main__btn {
@@ -1079,13 +1038,14 @@ main {
 
 .success__wrapper img {
   width: 14.2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .success__wrapper .form__title {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 3rem;
 }
 
 .success__wrapper .modal__subtext {
@@ -1094,6 +1054,7 @@ main {
   font-size: 1.4rem;
   line-height: 1.5;
   text-align: center;
+  color: #5f5f69;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1121,7 +1082,7 @@ main {
     margin-right: 10%;
   }
   .main__btn.sign_in {
-    margin-right: 0;
+    margin-right: 0rem;
   }
 }
 

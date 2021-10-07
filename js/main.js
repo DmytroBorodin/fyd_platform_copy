@@ -124,14 +124,29 @@ document.addEventListener("click", (e) => {
 forms.forEach((form) => {
   const fields = [...form.querySelectorAll("input")];
   const mainBtn = form.querySelector(".main__btn");
+  let formState = 0;
 
-  fields.forEach((field) => {
-    field.addEventListener("input", (e) => {
-      e.target.value !== ""
-        ? mainBtn.removeAttribute("disabled")
-        : mainBtn.removeAttribute("disabled", true);
+  if (fields.length) {
+    fields.forEach((field, index) => {
+      field.addEventListener("input", (e) => {
+        checkFields(fields, formState, e);
+        console.log(formState);
+        if (formState < 1) {
+          mainBtn.setAttribute("disabled", true);
+        } else {
+          mainBtn.removeAttribute("disabled");
+        }
+      });
     });
-  });
+  }
+
+  function checkFields(fieldsArr) {
+    if (formState >= 2) formState = 0;
+    fieldsArr.forEach((item) => {
+      item.value === "" ? formState-- : formState++;
+    });
+    if (formState < -1) formState = -1;
+  }
 
   form.addEventListener("click", (e) => {
     if (e.target.classList.contains("main__btn")) {
