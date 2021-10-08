@@ -94,6 +94,7 @@ inpuBlocks[0].addEventListener("click", () => {
 const modal = document.querySelector(".modal__window__wrapper");
 const forms = [...document.querySelectorAll(".modal__form__wrapper")];
 const fpBtn = document.querySelector(".main__btn.fp");
+console.log(fpBtn);
 
 fpBtn.addEventListener("click", () => {
   modal.classList.add("active");

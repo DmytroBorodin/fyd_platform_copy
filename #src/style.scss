@@ -525,8 +525,10 @@ main {
   padding: 7.4rem 1rem 0;
   margin: 0 auto;
   opacity: 0;
+  z-index: -1;
   &.active {
     opacity: 1;
+    z-index: 0;
     transition: opacity 1s ease;
   }
   &.sign__in {
@@ -720,7 +722,7 @@ main {
 /* modal window styles */
 .modal__window__wrapper {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -755,10 +757,12 @@ main {
   border-radius: 1rem;
   opacity: 0;
   z-index: 0;
-  transition: all 1s ease;
   &.active {
     opacity: 1;
     z-index: 1;
+  }
+  &.scc {
+    transition: all 0.8s ease;
   }
   .form__logo {
     width: 8.4rem;
